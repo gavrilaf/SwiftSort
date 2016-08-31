@@ -8,5 +8,12 @@
 
 import Foundation
 
-print("Hello, World!")
+runAllTestCases()
+
+
+//compareIntAndGenericSorting()
+//compareDirectFuncAndStructCallsSorting()
+//compareSortAlgorithm()
+
+
 

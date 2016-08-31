@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4C51833C1D6CDEB3005DD271 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51833B1D6CDEB3005DD271 /* main.swift */; };
+		4C5183431D6CDFCF005DD271 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5183421D6CDFCF005DD271 /* Utils.swift */; };
+		4C5183451D6CE4F8005DD271 /* SortInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5183441D6CE4F8005DD271 /* SortInteger.swift */; };
+		4C5183471D6DC428005DD271 /* RandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5183461D6DC428005DD271 /* RandomGenerator.swift */; };
+		4C5183491D6E0337005DD271 /* SortGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5183481D6E0337005DD271 /* SortGeneric.swift */; };
+		4C51834B1D6E2AD3005DD271 /* SortPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51834A1D6E2AD3005DD271 /* SortPerformance.swift */; };
+		4C51834D1D6EE2D9005DD271 /* SortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51834C1D6EE2D9005DD271 /* SortTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		4C5183381D6CDEB3005DD271 /* SortPerformance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SortPerformance; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C51833B1D6CDEB3005DD271 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4C5183421D6CDFCF005DD271 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4C5183441D6CE4F8005DD271 /* SortInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortInteger.swift; sourceTree = "<group>"; };
+		4C5183461D6DC428005DD271 /* RandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGenerator.swift; sourceTree = "<group>"; };
+		4C5183481D6E0337005DD271 /* SortGeneric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortGeneric.swift; sourceTree = "<group>"; };
+		4C51834A1D6E2AD3005DD271 /* SortPerformance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortPerformance.swift; sourceTree = "<group>"; };
+		4C51834C1D6EE2D9005DD271 /* SortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				4C51833B1D6CDEB3005DD271 /* main.swift */,
+				4C5183421D6CDFCF005DD271 /* Utils.swift */,
+				4C5183441D6CE4F8005DD271 /* SortInteger.swift */,
+				4C5183461D6DC428005DD271 /* RandomGenerator.swift */,
+				4C5183481D6E0337005DD271 /* SortGeneric.swift */,
+				4C51834A1D6E2AD3005DD271 /* SortPerformance.swift */,
+				4C51834C1D6EE2D9005DD271 /* SortTests.swift */,
 			);
 			path = SortPerformance;
 			sourceTree = "<group>";
@@ -119,7 +137,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5183471D6DC428005DD271 /* RandomGenerator.swift in Sources */,
+				4C5183491D6E0337005DD271 /* SortGeneric.swift in Sources */,
+				4C51834B1D6E2AD3005DD271 /* SortPerformance.swift in Sources */,
 				4C51833C1D6CDEB3005DD271 /* main.swift in Sources */,
+				4C5183431D6CDFCF005DD271 /* Utils.swift in Sources */,
+				4C5183451D6CE4F8005DD271 /* SortInteger.swift in Sources */,
+				4C51834D1D6EE2D9005DD271 /* SortTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +235,7 @@
 		4C5183401D6CDEB3005DD271 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -218,7 +243,9 @@
 		4C5183411D6CDEB3005DD271 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
