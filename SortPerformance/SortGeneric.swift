@@ -194,12 +194,97 @@ struct MergeInsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
 
 
 /*
- * Quick sort
+ * Deterministic Quick sort
  */
 
-struct QuickSortGenericAlg <Element: Comparable> : SortGenericAlg {
+struct DeterministicQuicksortAlg <Element: Comparable> : SortGenericAlg {
 
     func sort(inout arr : [Element]) -> Void {
+        innerSort(&arr, p: 0, r: arr.count - 1)
+    }
     
+    private func innerSort(inout arr: [Element], p: Int, r: Int) {
+        if p < r {
+            let q = partion(&arr, p: p, r: r)
+            innerSort(&arr, p: p, r: q - 1)
+            innerSort(&arr, p: q + 1, r: r)
+        }
+    }
+    
+    private func partion(inout arr: [Element], p: Int, r: Int) -> Int {
+        var q = p
+        for u in p...r-1 {
+            if arr[u] <= arr[r] {
+                let t = arr[q]
+                arr[q] = arr[u]
+                arr[u] = t
+                
+                q += 1
+            }
+        }
+        
+        let t = arr[q]
+        arr[q] = arr[r]
+        arr[r] = t
+        
+        return q
+    }
+}
+
+/*
+ * Random Quick sort
+ */
+
+
+struct RandomQuicksortAlg <Element: Comparable> : SortGenericAlg {
+        
+    func sort(inout arr : [Element]) -> Void {
+        innerSort(&arr, p: 0, r: arr.count - 1)
+    }
+        
+    private func innerSort(inout arr: [Element], p: Int, r: Int) {
+        let dist = r - p
+        if dist > 0 {
+            if dist > 5 {
+                let rindx = Int(arc4random_uniform(UInt32(dist))) + p
+                let t = arr[rindx]
+                arr[rindx] = arr[r]
+                arr[r] = t
+            }
+            
+            let q = partion(&arr, p: p, r: r)
+            innerSort(&arr, p: p, r: q - 1)
+            innerSort(&arr, p: q + 1, r: r)
+        }
+    }
+        
+    private func partion(inout arr: [Element], p: Int, r: Int) -> Int {
+        var q = p
+        for u in p...r-1 {
+            if arr[u] <= arr[r] {
+                let t = arr[q]
+                arr[q] = arr[u]
+                arr[u] = t
+                    
+                q += 1
+            }
+        }
+            
+        let t = arr[q]
+        arr[q] = arr[r]
+        arr[r] = t
+            
+        return q
+    }
+}
+
+/*
+ * Standard library sort
+ */
+
+struct StdLibInPlaceSortAlg <Element: Comparable> : SortGenericAlg {
+    
+    func sort(inout arr : [Element]) -> Void {
+        arr.sortInPlace()
     }
 }

@@ -36,9 +36,7 @@ func checkMergeIntAlgoPerf() -> PerformanceTiming {
     return checkDirectSortAlgoPerf(MergeSortIntAlg())
 }
 
-func checkStdIntAlgoPerf() -> PerformanceTiming {
-    return checkDirectSortAlgoPerf(StdLibSortIntAlg())
-}
+
 
 /*
  * Check performance for Generic sorting
@@ -70,6 +68,21 @@ func checkMergeExGenericAlgoPerfWithWindow_5() -> PerformanceTiming {
 func checkMergeExGenericAlgoPerfWithWindow_10() -> PerformanceTiming {
     return checkSortAlgoPerformance(MergeInsertionSortGenericAlg<Int>(windowSize: 10))
 }
+
+
+func checkDeterministicQuicksortAlgPerf() -> PerformanceTiming {
+    return checkSortAlgoPerformance(DeterministicQuicksortAlg<Int>())
+}
+
+
+func checkRandomQuicksortAlgPerf() -> PerformanceTiming {
+    return checkSortAlgoPerformance(RandomQuicksortAlg<Int>())
+}
+
+func checkStdLibAlgPerf() -> PerformanceTiming {
+    return checkSortAlgoPerformance(StdLibInPlaceSortAlg<Int>())
+}
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +134,10 @@ func compareSortAlgorithm() {
         ("Insertion", checkInsertionGenericAlgoPerf),
         ("Merge", checkMergeGenericAlgoPerf),
         ("Merge+Insertion (window size = 5)", checkMergeExGenericAlgoPerfWithWindow_5),
-        ("Merge+Insertion (window size = 10)", checkMergeExGenericAlgoPerfWithWindow_10)
+        ("Merge+Insertion (window size = 10)", checkMergeExGenericAlgoPerfWithWindow_10),
+        ("Deterministic Quicksort", checkDeterministicQuicksortAlgPerf),
+        ("Random Quicksort", checkRandomQuicksortAlgPerf),
+        ("Standard Swift Array.sortInPlace", checkStdLibAlgPerf),
     ]
     
     runCheckPerformanceSet(funcs)

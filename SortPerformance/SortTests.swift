@@ -93,11 +93,15 @@ func testMergeExSortGenericAlgo() -> Void {
     testGenericSort("Merge+Insertion", algo: MergeInsertionSortGenericAlg<Int>(windowSize: 5))
 }
 
-func testQuickSortGenericAlgo() -> Void {
+func testDeterministicQuicksortGenericAlgo() -> Void {
     
-    testGenericSort("Quick", algo: QuickSortGenericAlg<Int>())
+    testGenericSort("Quick (Deterministic)", algo: DeterministicQuicksortAlg<Int>())
 }
 
+func testRandomQuicksortGenericAlgo() -> Void {
+    
+    testGenericSort("Quick (Random)", algo: DeterministicQuicksortAlg<Int>())
+}
 
 
 
@@ -105,14 +109,15 @@ func testQuickSortGenericAlgo() -> Void {
 
 func runAllTestCases() -> Void {
     let tests = [
-        testSelectionSortIntFunc,
-        testSelectionSortIntAlgo,
-        testMergeSortIntAlgo,
-        testSelectionSortGenericAlgo,
-        testInsertionSortGenericAlgo,
-        testMergeSortGenericAlgo,
-        testMergeExSortGenericAlgo,
-        testQuickSortGenericAlgo
+       // testSelectionSortIntFunc,
+       // testSelectionSortIntAlgo,
+       // testMergeSortIntAlgo,
+       // testSelectionSortGenericAlgo,
+       // testInsertionSortGenericAlgo,
+       // testMergeSortGenericAlgo,
+       // testMergeExSortGenericAlgo,
+        testDeterministicQuicksortGenericAlgo,
+        testRandomQuicksortGenericAlgo
     ]
     
     for f in tests {

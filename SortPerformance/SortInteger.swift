@@ -112,15 +112,7 @@ struct MergeSortIntAlg : SortIntAlg {
     }
 }
 
-/*
- * Standard library sort
- */
 
-struct StdLibSortIntAlg : SortIntAlg {
-    func sort(inout arr : [Int]) -> Void {
-        arr.sortInPlace()
-    }
-}
 
 
 

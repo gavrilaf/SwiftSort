@@ -8,12 +8,12 @@
 
 import Foundation
 
-runAllTestCases()
+//runAllTestCases()
 
 
 //compareIntAndGenericSorting()
 //compareDirectFuncAndStructCallsSorting()
-//compareSortAlgorithm()
+compareSortAlgorithm()
 
 
 
