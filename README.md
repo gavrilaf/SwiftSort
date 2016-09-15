@@ -51,4 +51,8 @@ Swift is `REALLY` fast. Swift standard library sortInPlace uses UnsafePointer an
 
 But very direct pure Swift implementation works with almost the same speed. It's great!
 
+All tests were running on MacBook Pro 2.7 GHz Intel Core i5 16 GB 1867 MHz DDR3
+XCode Version 7.3.1
+Swift 2.2
+
 
