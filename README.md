@@ -1,6 +1,6 @@
 # SwiftSort
 
-When I was reading perfect book `Introdution to algorithms` from Tomas Cormen, I decided to implement some. Just for more deeply understanding.
+When I was reading perfect book `Introdution to algorithms` from Tomas Cormen, I decided to implement some algorithms. Just for more deeply understanding.
 
 But when I started, I'd thought that would be interesting to measure Swift performance in some simple situations.
 
