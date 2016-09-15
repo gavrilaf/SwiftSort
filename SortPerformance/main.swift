@@ -8,11 +8,11 @@
 
 import Foundation
 
-//runAllTestCases()
+runAllTestCases()
 
 
-//compareIntAndGenericSorting()
-//compareDirectFuncAndStructCallsSorting()
+compareIntAndGenericSorting()
+compareDirectFuncAndStructCallsSorting()
 compareSortAlgorithm()
 
 
