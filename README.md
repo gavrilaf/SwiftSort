@@ -1,12 +1,12 @@
 # SwiftSort
 
-When I was reading perfect book `Introdution to algorithms` from Tomas Cormen, I decided to implement some algorithms. Just for more deeply understanding.
+When I was reading perfect book `Introdution to algorithms` from Tomas Cormen, I decided to implement some algorithms. Just for deeper understanding.
 
-But when I started, I'd thought that would be interesting to measure Swift performance in some simple situations.
+But when I started, I thought that would be interesting to measure Swift performance in some simple situations.
 
 And what I got...
 
-For simple measuring I used `selection sort`, because it's simple and slow. So we don't need millions iterations to get difference.
+For simple measuring I used `selection sort`, because it's simple and slow. So we don't need million iterations to get difference.
 
 ### Function call vs scruct method call vs Generic (struct<Int>) 
 
@@ -17,7 +17,7 @@ Struct (best=32.3600172996521, worse=39.0909910202026, mean=34.1559565067291)
 Generic struct (best=32.355010509491, worse=43.2620048522949, mean=33.7225139141083)
 ```
 
-It's nice, performance the same.
+It's nice, performance is the same.
 
 ### Direct sort for Int type vs Generic<Int> using Merge sort
 
@@ -29,7 +29,7 @@ Generic (best=5.78796863555908, worse=8.31198692321777, mean=6.11533761024475)
 
 ### Just comparing sorting algorithms (main part)
 
-Compare different sort algorithm performance
+Compare different sort algorithms performance
 ```
 Selection (best=32.4990153312683, worse=39.4110083580017, mean=34.7992897033691)
 Insertion (best=24.5940089225769, worse=59.0589642524719, mean=29.2738890647888)
@@ -41,15 +41,15 @@ Random Quicksort (best=1.30802392959595, worse=2.72500514984131, mean=1.43631935
 Standard Swift Array.sortInPlace (best=0.387966632843018, worse=1.11401081085205, mean=0.455890297889709)
 ```
 
-So, results are predictible. Quicksort is a fastest algorithm. As should be )
-'Random quicksort' should be faster on reverse sorted array, but on random array shows the very close result. 
-A bit difference caused by random number generator.
+So, results are predictible. Quicksort is fastest algorithm.
+'Random quicksort' should be faster on reverse sorted arrays, but on random arrays it shows the very close result. 
+A bit difference is caused by random number generator.
 
 And the main point.
 
 Swift is `REALLY` fast. Swift standard library sortInPlace uses UnsafePointer and probably uses low level sorting.
 
-But very direct pure Swift implementation works with almost the same speed. It's great!
+But direct pure Swift implementation works with almost the same speed. It's great!
 
 All tests were running on 
 - MacBook Pro 2.7 GHz Intel Core i5 16 GB 1867 MHz DDR3
@@ -57,7 +57,7 @@ All tests were running on
 - Swift 2.2
 
 ### Remark 
-Generics work fast only when `Whole module optimization` option is turned on. In the cases generics work extremly slow.
+Generics works fast only when `Whole module optimization` option is turned on. In other cases generics works extremly slow.
 
 
 
