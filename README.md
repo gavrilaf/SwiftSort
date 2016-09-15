@@ -6,7 +6,7 @@ But when I started, I'd thought that would be interesting to measure Swift perfo
 
 And what I got...
 
-For simple measuring I used `selection sort`, becuse it's simple and slow. So we don't need millions iterations to get difference.
+For simple measuring I used `selection sort`, because it's simple and slow. So we don't need millions iterations to get difference.
 
 ### Function call vs scruct method call vs Generic (struct<Int>) 
 
@@ -51,8 +51,13 @@ Swift is `REALLY` fast. Swift standard library sortInPlace uses UnsafePointer an
 
 But very direct pure Swift implementation works with almost the same speed. It's great!
 
-All tests were running on MacBook Pro 2.7 GHz Intel Core i5 16 GB 1867 MHz DDR3
-XCode Version 7.3.1
-Swift 2.2
+All tests were running on 
+- MacBook Pro 2.7 GHz Intel Core i5 16 GB 1867 MHz DDR3
+- XCode Version 7.3.1
+- Swift 2.2
+
+### Remark 
+Generics work fast only when `Whole module optimization` option is turned on. In the cases generics work extremly slow.
+
 
 
