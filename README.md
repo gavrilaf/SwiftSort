@@ -64,6 +64,10 @@ Project updated to Swift 3.0.
 
 New results (comparing sorting algorithms)
 
+- MacBook Pro 2.7 GHz Intel Core i5 16 GB 1867 MHz DDR3
+- XCode Version 8.0
+- Swift 3.0
+
 ```
 Selection (best=32.3470234870911, worse=38.7440323829651, mean=34.1400790214539)
 Insertion (best=31.9449901580811, worse=39.1849875450134, mean=33.9502185583115)
