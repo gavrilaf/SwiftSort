@@ -59,5 +59,23 @@ All tests were running on
 ### Remark 
 Generics works fast only when `Whole module optimization` option is turned on. In other cases generics works extremly slow.
 
+### UPDATES
+Project updated to Swift 3.0.
+
+New results (comparing sorting algorithms)
+
+```
+Selection (best=32.3470234870911, worse=38.7440323829651, mean=34.1400790214539)
+Insertion (best=31.9449901580811, worse=39.1849875450134, mean=33.9502185583115)
+Merge (best=5.37800788879395, worse=7.59899616241455, mean=5.74513077735901)
+Merge+Insertion (window size = 5) (best=1.79803371429443, worse=3.91101837158203, mean=2.08269357681274)
+Merge+Insertion (window size = 10) (best=1.42300128936768, worse=2.68799066543579, mean=1.67848110198975)
+Deterministic Quicksort (best=1.11699104309082, worse=2.37101316452026, mean=1.20561242103577)
+Random Quicksort (best=1.82396173477173, worse=3.36700677871704, mean=1.90734148025513)
+Standard Swift Array.sortInPlace (best=0.560998916625977, worse=0.82099437713623, mean=0.602246522903442)
+```
+
+Results the same. Swift 2.2 was fast and Swift 3.0 is fast too. But it isn't faster (at least in simple benchmarks)
+
 
 
