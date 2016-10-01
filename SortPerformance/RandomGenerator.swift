@@ -19,7 +19,7 @@ protocol SimpleRandomGenerator {
 extension SimpleRandomGenerator  {
     
     func generateArray(size: Int) -> [Self.Value] {
-        let a = (0...size-1).map{ _ in random() }
+        let a = (0...size-1).map { _ in random() }
         return a
     }
 }

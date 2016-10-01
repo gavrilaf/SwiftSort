@@ -62,7 +62,7 @@ func testMergeSortIntAlgo() -> Void {
  * Generic
  */
 
-func testGenericSort<G: SortGenericAlg where G.Element == Int>(desc: String, algo: G) -> Void {
+func testGenericSort<G: SortGenericAlg>(_ desc: String, algo: G) -> Void where G.Element == Int {
     print("\(desc) (Generic)")
     
     for (test, data) in testCases {

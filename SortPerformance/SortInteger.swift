@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SortIntAlg {
-    func sort(inout arr : [Int]) -> Void
+    func sort(_ arr : inout [Int]) -> Void
 }
 
 /*
@@ -17,7 +17,7 @@ protocol SortIntAlg {
  */
 
 struct SelectionSortIntAlg : SortIntAlg {
-    func sort(inout arr : [Int]) -> Void {
+    func sort(_ arr : inout [Int]) -> Void {
         let size = arr.count
         
         for i in 0..<size {
@@ -39,7 +39,7 @@ struct SelectionSortIntAlg : SortIntAlg {
     }
 }
 
-func selectionSortInt(inout arr : [Int]) -> Void
+func selectionSortInt(_ arr : inout [Int]) -> Void
 {
     let size = arr.count
     
@@ -65,11 +65,11 @@ func selectionSortInt(inout arr : [Int]) -> Void
  */
 
 struct MergeSortIntAlg : SortIntAlg {
-    func sort(inout arr : [Int]) -> Void {
+    func sort(_ arr : inout [Int]) -> Void {
         innnerSort(&arr, left: 0, right: arr.count - 1)
     }
     
-    private func innnerSort(inout arr: [Int], left: Int, right: Int)
+    fileprivate func innnerSort(_ arr: inout [Int], left: Int, right: Int)
     {
         if left < right {
             let middle = (left + right) / 2;
@@ -79,7 +79,7 @@ struct MergeSortIntAlg : SortIntAlg {
         }
     }
     
-    private func merge(inout arr: [Int], left: Int, middle: Int, right: Int) {
+    fileprivate func merge(_ arr: inout [Int], left: Int, middle: Int, right: Int) {
         let leftArr: [Int] = Array(arr[left...middle])
         let rightArr: [Int] = Array(arr[middle + 1...right])
         

@@ -16,15 +16,15 @@ let testCount = 100
  * Check performance for direct Integer sorting
  */
 
-func checkDirectSortAlgoPerf<G : SortIntAlg>(algo: G) -> PerformanceTiming {
-    let sorter : (inout arr: [Int]) -> Void = { arr in
+func checkDirectSortAlgoPerf<G : SortIntAlg>(_ algo: G) -> PerformanceTiming {
+    let sorter : (_ arr: inout [Int]) -> Void = { arr in
         algo.sort(&arr)
     }
-    return measureSortPerformace(sorter, generator: randGen, arraySize: arraySize, testCount: testCount)
+    return measureSortPerformace(sortFunc: sorter, generator: randGen, arraySize: arraySize, testCount: testCount)
 }
 
 func checkSelectionIntFuncPerf() -> PerformanceTiming {
-    return measureSortPerformace(selectionSortInt, generator: randGen, arraySize: arraySize, testCount: testCount)
+    return measureSortPerformace(sortFunc: selectionSortInt, generator: randGen, arraySize: arraySize, testCount: testCount)
     
 }
 
@@ -42,11 +42,11 @@ func checkMergeIntAlgoPerf() -> PerformanceTiming {
  * Check performance for Generic sorting
  */
 
-func checkSortAlgoPerformance<G: SortGenericAlg where G.Element == Int>(algo: G) -> PerformanceTiming {
-    let sorter : (inout arr: [Int]) -> Void = { arr in
+func checkSortAlgoPerformance<G: SortGenericAlg>(_ algo: G) -> PerformanceTiming where G.Element == Int {
+    let sorter : (_ arr: inout [Int]) -> Void = { arr in
         algo.sort(&arr)
     }
-    return measureSortPerformace(sorter, generator: randGen, arraySize: arraySize, testCount: testCount)
+    return measureSortPerformace(sortFunc: sorter, generator: randGen, arraySize: arraySize, testCount: testCount)
 }
 
 func checkSelectionGenericAlgoPerf() -> PerformanceTiming {
@@ -86,7 +86,7 @@ func checkStdLibAlgPerf() -> PerformanceTiming {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-func runCheckPerformanceSet(funcs: [(String, () -> PerformanceTiming)]) {
+func runCheckPerformanceSet(_ funcs: [(String, () -> PerformanceTiming)]) {
     print("---------------------------------------------------")
     
     for (desc, f) in funcs {

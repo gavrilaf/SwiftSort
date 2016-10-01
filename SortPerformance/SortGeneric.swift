@@ -11,7 +11,7 @@ import Foundation
 protocol SortGenericAlg {
     associatedtype Element
     
-    func sort(inout arr : [Element]) -> Void
+    func sort(_ arr : inout [Element]) -> Void
 }
 
 
@@ -20,7 +20,7 @@ protocol SortGenericAlg {
  */
 
 struct SelectionSortGenericAlg <Element: Comparable> : SortGenericAlg {
-    func sort(inout arr : [Element]) -> Void {
+    func sort(_ arr : inout [Element]) -> Void {
         let size = arr.count
         
         for i in 0..<size {
@@ -48,7 +48,7 @@ struct SelectionSortGenericAlg <Element: Comparable> : SortGenericAlg {
  */
 
 struct InsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
-    func sort(inout arr : [Element]) -> Void {
+    func sort(_ arr : inout [Element]) -> Void {
         let size = arr.count
         guard size > 0 else { return }
         
@@ -69,11 +69,11 @@ struct InsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
  */
 
 struct MergeSortGenericAlg <Element: Comparable> : SortGenericAlg {
-    func sort(inout arr : [Element]) -> Void {
+    func sort(_ arr : inout [Element]) -> Void {
         innnerSort(&arr, left: 0, right: arr.count - 1)
     }
     
-    private func innnerSort(inout arr: [Element], left: Int, right: Int)
+    fileprivate func innnerSort(_ arr: inout [Element], left: Int, right: Int)
     {
         if left < right {
             let middle = (left + right) / 2;
@@ -83,7 +83,7 @@ struct MergeSortGenericAlg <Element: Comparable> : SortGenericAlg {
         }
     }
     
-    private func merge(inout arr: [Element], left: Int, middle: Int, right: Int) {
+    fileprivate func merge(_ arr: inout [Element], left: Int, middle: Int, right: Int) {
         let leftArr: [Element] = Array(arr[left...middle])
         let rightArr: [Element] = Array(arr[middle + 1...right])
         
@@ -129,11 +129,11 @@ struct MergeInsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
         self.windowSize = windowSize
     }
     
-    func sort(inout arr : [Element]) -> Void {
+    func sort(_ arr : inout [Element]) -> Void {
         innnerSort(&arr, left: 0, right: arr.count - 1)
     }
     
-    private func innnerSort(inout arr: [Element], left: Int, right: Int)
+    fileprivate func innnerSort(_ arr: inout [Element], left: Int, right: Int)
     {
         let dist = right - left
         
@@ -147,7 +147,7 @@ struct MergeInsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
         }
     }
     
-    private func inPlaceInsertionSort(inout arr: [Element], left: Int, right: Int) {
+    fileprivate func inPlaceInsertionSort(_ arr: inout [Element], left: Int, right: Int) {
         for i in left+1...right {
             let key = arr[i]
             var j = i - 1;
@@ -159,7 +159,7 @@ struct MergeInsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
         }
     }
     
-    private func merge(inout arr: [Element], left: Int, middle: Int, right: Int) {
+    fileprivate func merge(_ arr: inout [Element], left: Int, middle: Int, right: Int) {
         let leftArr: [Element] = Array(arr[left...middle])
         let rightArr: [Element] = Array(arr[middle + 1...right])
         
@@ -199,11 +199,11 @@ struct MergeInsertionSortGenericAlg <Element: Comparable> : SortGenericAlg {
 
 struct DeterministicQuicksortAlg <Element: Comparable> : SortGenericAlg {
 
-    func sort(inout arr : [Element]) -> Void {
+    func sort(_ arr : inout [Element]) -> Void {
         innerSort(&arr, p: 0, r: arr.count - 1)
     }
     
-    private func innerSort(inout arr: [Element], p: Int, r: Int) {
+    fileprivate func innerSort(_ arr: inout [Element], p: Int, r: Int) {
         if p < r {
             let q = partion(&arr, p: p, r: r)
             innerSort(&arr, p: p, r: q - 1)
@@ -211,7 +211,7 @@ struct DeterministicQuicksortAlg <Element: Comparable> : SortGenericAlg {
         }
     }
     
-    private func partion(inout arr: [Element], p: Int, r: Int) -> Int {
+    fileprivate func partion(_ arr: inout [Element], p: Int, r: Int) -> Int {
         var q = p
         for u in p...r-1 {
             if arr[u] <= arr[r] {
@@ -238,11 +238,11 @@ struct DeterministicQuicksortAlg <Element: Comparable> : SortGenericAlg {
 
 struct RandomQuicksortAlg <Element: Comparable> : SortGenericAlg {
         
-    func sort(inout arr : [Element]) -> Void {
+    func sort(_ arr : inout [Element]) -> Void {
         innerSort(&arr, p: 0, r: arr.count - 1)
     }
         
-    private func innerSort(inout arr: [Element], p: Int, r: Int) {
+    fileprivate func innerSort(_ arr: inout [Element], p: Int, r: Int) {
         let dist = r - p
         if dist > 0 {
             if dist > 5 {
@@ -258,7 +258,7 @@ struct RandomQuicksortAlg <Element: Comparable> : SortGenericAlg {
         }
     }
         
-    private func partion(inout arr: [Element], p: Int, r: Int) -> Int {
+    fileprivate func partion(_ arr: inout [Element], p: Int, r: Int) -> Int {
         var q = p
         for u in p...r-1 {
             if arr[u] <= arr[r] {
@@ -284,7 +284,7 @@ struct RandomQuicksortAlg <Element: Comparable> : SortGenericAlg {
 
 struct StdLibInPlaceSortAlg <Element: Comparable> : SortGenericAlg {
     
-    func sort(inout arr : [Element]) -> Void {
-        arr.sortInPlace()
+    func sort(_ arr : inout [Element]) -> Void {
+        arr.sort()
     }
 }
